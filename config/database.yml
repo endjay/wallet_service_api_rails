@@ -21,11 +21,11 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch("DB_USERNAME") %>
-  password: <%= ENV.fetch("DB_PASSWORD") { 5 } %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
 
 development:
   <<: *default
-  database: wallet_service_api_development
+  database: <%= ENV.fetch("DB_NAME") %>
 
 
   # The specified database role being used to connect to postgres.
